@@ -1,0 +1,42 @@
+# run: conda env create --file env_napari_czann_segment.yml
+name: napari_zen_test
+channels:
+  - defaults
+  - conda-forge
+
+dependencies:
+  - python=3.10
+  - conda
+  - docutils
+  - pip
+  - wheel
+  - setuptools
+  - autopep8
+  - nb_conda_kernels
+  - pytest
+
+  - pip:
+      - czitools
+      - cztile
+      - napari[all]
+      - napari-brightness-contrast
+      - napari-layer-details-display
+      - napari-plugin-search
+
+# Create an environment
+# conda env create --file env_napari_zen_connector.yml
+
+# Update an environment
+# conda env update --name napari_zen_test --file env_napari_zen_connector.yml --prune
+
+# Remove an environment
+# conda remove --name napari_zen_test --all
+# conda clean --all
+
+# Show the locations of all versions of Python that are currently in the path
+# Windows: where python
+# Linux which -a python
+
+# verfify CUDA
+# nvcc --version
+# nvidia-smi

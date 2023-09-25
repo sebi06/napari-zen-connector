@@ -1,28 +1,12 @@
-name: napari-zen-connector
-display_name: Napari ZEN Connector
+name: napari-zen-connector # needs to match your package name
+display_name: ZEN Connector TCPIP # will also be used on the hub soon
+
 contributions:
   commands:
-    - id: napari-zen-connector.get_reader
-      python_name: napari_zen_connector._reader:napari_get_reader
-      title: Open data with Napari ZEN Connector
-    - id: napari-zen-connector.make_qwidget
-      python_name: napari_zen_connector._widget:ExampleQWidget
-      title: Make example QWidget
-    - id: napari-zen-connector.make_magic_widget
-      python_name: napari_zen_connector._widget:example_magic_widget
-      title: Make example magic widget
-    - id: napari-zen-connector.make_func_widget
-      python_name: napari_zen_connector._widget:example_function_widget
-      title: Make example function widget
-  readers:
-    - command: napari-zen-connector.get_reader
-      accepts_directories: false
-      filename_patterns: ['*.npy']
+    - id: napari-zen-connector.get_zen_widget
+      python_name: napari_zen_connector.dock_widget:connect_zen
+      title: ZEN Connect
+
   widgets:
-    - command: napari-zen-connector.make_qwidget
-      display_name: Example QWidget
-    - command: napari-zen-connector.make_magic_widget
-      display_name: Example Magic Widget
-    - command: napari-zen-connector.make_func_widget
-      autogenerate: true
-      display_name: Example Function Widget
+    - command: napari-zen-connector.get_zen_widget
+      display_name: Connect with ZEN TCPIP
