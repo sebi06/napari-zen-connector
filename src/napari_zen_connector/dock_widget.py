@@ -16,6 +16,7 @@ from napari.layers import Labels, Image
 from pathlib import Path
 import os
 from typing import Dict, List, Tuple, Union
+from configparser import ConfigParser
 from qtpy.QtWidgets import (
     QComboBox,
     QHBoxLayout,
@@ -126,7 +127,15 @@ class connect_zen(QWidget):
         super().__init__()
         self.viewer = napari_viewer
 
-        self.expfolder_default = Path(r"f:\Documents\Carl Zeiss\ZEN\Documents\Experiment Setups")
+        #config_object = ConfigParser()
+        #config_object.read("config.ini")
+        #self.zenconfig = config_object["ZENFOLDERS"]
+        #self.expfolder_default = self.zenconfig["experiment_setups"]
+        #self.output_folder = self.zenconfig["output_folder"]
+        #print("Zen Experiment Setups:". self.expfolder_default)
+        #print("Zen Output:". self.output_folder)
+
+        self.expfolder_default = r"E:\Sebastian\OneDrive\Documents\Carl Zeiss\ZEN\Documents\Experiment Setups"
 
         # create a layout
         self.setLayout(QVBoxLayout())
@@ -148,6 +157,8 @@ class connect_zen(QWidget):
 
         if not os.path.isdir(self.expfolder_default):
             print("ZEN Experiment Setups Folder :", self.expfolder_default, "not found.")
+            self.expfiles_long = ["c:\\"]
+            self.expfiles_short = ["c:\\"]
 
         self.layout().addWidget(QLabel("Select ZEN Experiment"))
         self.expselect = QComboBox(self)
